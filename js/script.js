@@ -38,7 +38,7 @@ movieDB.movies.sort();
 filmsList.innerHTML = "";
 
 movieDB.movies.forEach((item, i) => {
-    filmsList.innerHTML += `<li class="promo__interactive-item">${i+1} - ${item}
+    filmsList.innerHTML += `<li class="promo__interactive-item">${i + 1} - ${item}
                                 <div class="delete"></div>
                             </li>`;
 });
@@ -50,4 +50,21 @@ poster.style.backgroundImage = "url('/img/bg.jpg')";
 //     item.remove();
 // });
 
+const btn = document.querySelector("button"),
+    link = document.querySelector(".hrf a");
 
+link.addEventListener(`click`, function (e) {
+    event.preventDefault(); // отмена действия по умолчанию
+console.log(e.target);
+console.log(e);
+});
+
+
+const deleteElement = (event) => { // event - объект события
+    console.log(event.target);
+    console.log(event.type);
+    console.log(event);
+};
+
+btn.addEventListener(`click`, deleteElement, {once: true}); // опция действия один раз
+// btn.removeEventListener(`click`, deleteElement, {once: true}); // удаление слушателя
